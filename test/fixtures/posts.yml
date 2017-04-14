@@ -1,5 +1,4 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+# read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 one:
   id: 1
   user_id: 1
@@ -15,3 +14,8 @@ no_content:
   id: 3
   user_id: 1
   title: 'I got a title but no content!'
+
+orphan:
+  id: 4
+  title: 'I have a title'
+  content: "And I'm full of content."

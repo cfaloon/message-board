@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: 'Post successfully created!'
     else
-      render :new
+      render :new, error: @post.errors
     end
   end
 

@@ -6,5 +6,6 @@ class PostTest < ActiveSupport::TestCase
     assert posts(:one).valid?
     refute posts(:untitled).valid?
     refute posts(:no_content).valid?
+    refute posts(:orphan).valid?
   end
 end
