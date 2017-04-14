@@ -11,7 +11,8 @@
         %tr
           %th
             = link_to post.title, post_path(post)
-          %th #{post.user.try(:email)}
+          %th
+            = link_to post.user.try(:email), user_path(post.user)
           %th #{post.created_at}
   = link_to 'New Post', new_post_path, class: 'btn btn-default'
     

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :new, :create, :show] do
     resources :replies, only: [:create]
   end
+
+  resources :users, only: [:show]
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

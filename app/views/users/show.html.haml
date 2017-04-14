@@ -1,0 +1,32 @@
+.row
+  %h1 #{@user.email}
+  .posts-block.col-lg-6
+    %h3 Posts
+    - if @user.posts.any?
+      %table.table
+        %thead
+          %tr
+            %th Post Title
+            %th Date
+        %tbody
+          - @user.posts.each do |post|
+            %tr
+              %td #{link_to post.title, post_path(post)}
+              %td #{post.created_at}
+    - else
+      This user has no posts.
+  .replies-block.col-lg-6
+    %h3 Replies
+    - if @user.replies.any?
+      %table.table
+        %thead
+          %tr
+            %th Post Title
+            %th Reply Date
+        %tbody
+          - @user.replies.each do |reply|
+            %tr
+              %td #{link_to reply.post.title, post_path(reply.post)}
+              %td #{reply.created_at}
+    - else
+      This user has no replies.
