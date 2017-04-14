@@ -1,10 +1,13 @@
-.navigation
-  - if user_signed_in?
-    Hello, #{current_user.email}
-    |
-    = link_to "Sign Out", destroy_user_session_path, method: :delete
-  - else
-    = link_to "Sign Up", new_user_registration_path
-    | 
-    = link_to "Sign In", new_user_session_path
+.navbar.navbar-default
+  .navigation-banner
+    %h1 Message Board
+  .navigation-session-information
+    - if user_signed_in?
+      Hello, #{current_user.email}
+      |
+      = link_to "Sign Out", destroy_user_session_path, method: :delete
+    - else
+      = link_to "Sign Up", new_user_registration_path
+      | 
+      = link_to "Sign In", new_user_session_path
 
