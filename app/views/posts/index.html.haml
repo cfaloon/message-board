@@ -1,0 +1,17 @@
+.row
+  %h2 Posts
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Title
+        %th Author
+        %th Date
+    %tbody
+      - @posts.each do |post|
+        %tr
+          %th
+            = link_to post.title, post_path(post)
+          %th #{post.user.try(:email)}
+          %th #{post.created_at}
+  = link_to 'New Post', new_post_path, class: 'btn btn-default'
+    

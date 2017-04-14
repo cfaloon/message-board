@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  root 'welcome#index'
+  root 'posts#index'
   # resourceful routing
-  resources :posts
+  resources :posts, only: [:index, :new, :create, :show] do
+    resources :replies, only: [:new, :create]
+  end
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

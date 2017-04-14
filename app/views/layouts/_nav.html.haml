@@ -1,7 +1,8 @@
 .row
   .navbar.navbar-default
     .navigation-banner
-      %h1 Message Board
+      %h1
+        = link_to 'Message Board', posts_path
     .navigation-session-information
       - if user_signed_in?
         Hello, #{current_user.email}

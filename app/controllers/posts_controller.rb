@@ -2,6 +2,11 @@ class PostsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
 
+  # GET /posts
+  def index
+    @posts = Post.all
+  end
+  
   # GET /posts/new
   def new
     @post ||= Post.new(user_id: current_user.id)

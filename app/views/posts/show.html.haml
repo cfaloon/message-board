@@ -9,4 +9,16 @@
     on #{@post.created_at}
 .row
   .post-content
-    #{@post.content}
+    #{simple_format @post.content}
+.row
+  %h2 Replies
+  - if @post.replies.any?
+    - @post.replies.each do |reply|
+      .row
+        .post-reply
+          #{simple_format reply.content}
+          .post-reply-author - #{reply.user.email} on #{reply.created_at)}
+  - else
+    %h3 There are no replies.
+.row
+  = link_to 'Add Reply', new_post_reply_path(@post), class: 'btn btn-default'

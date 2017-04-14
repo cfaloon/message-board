@@ -1,0 +1,8 @@
+.row
+  %div
+    Replying to
+    =link_to @post.title, post_path(@post)
+  = form_for [@post, @reply] do |f|
+    = f.label :reply
+    = f.text_area :content, class: 'form-control'
+    = f.submit 'Add Reply', class: 'btn btn-default'
