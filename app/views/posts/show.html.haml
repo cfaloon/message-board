@@ -21,4 +21,10 @@
   - else
     %h3 There are no replies.
 .row
-  = render 'replies/new'
+  - if user_signed_in?
+    = render 'replies/new'
+  - else
+    You must be signed in to reply.
+    = link_to "Sign Up", new_user_registration_path
+    or
+    = link_to "Sign In", new_user_session_path
