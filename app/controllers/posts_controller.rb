@@ -15,6 +15,7 @@ class PostsController < ApplicationController
   # GET /posts/:id
   def show
     @post = Post.find(params[:id])
+    @reply = Reply.new
   end
   
   # POST /posts

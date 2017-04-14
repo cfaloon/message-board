@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'posts#index'
   # resourceful routing
   resources :posts, only: [:index, :new, :create, :show] do
-    resources :replies, only: [:new, :create]
+    resources :replies, only: [:create]
   end
   
   # Example of regular route:

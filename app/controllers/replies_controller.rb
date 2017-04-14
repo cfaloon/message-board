@@ -2,11 +2,6 @@ class RepliesController < ApplicationController
   before_action :authenticate_user!, on: [:new, :create]
   before_action :set_post
 
-  # GET /posts/:post_id/replies/new
-  def new 
-    @reply = Reply.new
-  end
-
   # POST /posts/:post_id/replies
   def create
     new_reply_params = reply_params.merge(post_id: params[:post_id], user_id: current_user.id)
