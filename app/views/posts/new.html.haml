@@ -1,11 +1,11 @@
-.container
-  .row
-    %h2 New Post
+.row
+  %h2 New Post
+  .form-group
     = form_for @post do |f|
       = f.label :title
-      = f.text_field :title
+      = f.text_field :title, class: 'form-control'
       %br
       = f.label :content
-      = f.text_area :content
+      = f.text_area :content, class: 'form-control'
       %br
       = f.submit

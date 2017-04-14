@@ -14,11 +14,11 @@ class PostsController < ApplicationController
   
   # POST /posts
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(post_params.merge(user_id: current_user.id))
     if @post.save
       redirect_to @post, notice: 'Post successfully created!'
     else
-      render :new, error: @post.errors
+      redirect_to new_post_url, alert: @post.errors
     end
   end
 
