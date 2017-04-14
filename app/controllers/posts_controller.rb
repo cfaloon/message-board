@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new(user_id: current_user.id)
+    @post ||= Post.new(user_id: current_user.id)
   end
 
   # GET /posts/:id
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: 'Post successfully created!'
     else
-      redirect_to new_post_url, alert: @post.errors
+      redirect_to new_post_url, alert: 'Could not create post. Title and Content must not be empty.'
     end
   end
 

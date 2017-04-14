@@ -14,4 +14,26 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "navigation"
+@import "navigation";
+@import "posts";
+
+.flash-message {
+   position: relative;
+   left: 25%;
+   padding: 10px auto;
+   width: 50%;
+   color: #f0f0f0;
+}
+
+.notice {
+    @extend .flash-message;
+    background-color: #22aa22;
+    text-align: center;
+}
+
+.alert {
+    @extend .flash-message;
+    background-color: #aa2222;
+}
+
+

@@ -9,7 +9,8 @@
       .container
         = render 'layouts/nav'
         - if alert
-          .alert #{alert}
+          .alert
+            %strong #{alert}
         - if notice
           .notice #{notice}
         = yield
